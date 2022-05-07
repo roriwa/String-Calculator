@@ -33,3 +33,4 @@ build/
 ### Maven Wrapper ###
 /.mvn/wrapper/maven-wrapper.jar
 /.env/
+/src/main/java/hwr/oop/TestCode.java
