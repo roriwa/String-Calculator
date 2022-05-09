@@ -64,3 +64,62 @@ class Test{
 | Number | Dependency Name | Dependency Description | Why is it necessary? |
 |--------|-----------------|------------------------|----------------------|
 | 1      | /               | /                      | /                    |
+
+
+## Complete Index of all (default) Operations
+
+### Expression Operators
+| Name        | Operator | Example  |
+|-------------|----------|----------|
+| Addition    | +        | 2+3 => 5 |
+| Subtraction | -        | 5-4 => 1 |
+
+### Term Operators
+| Name           | Operator | Example  |
+|----------------|----------|----------|
+| Multiplication | *        | 2*3 => 6 |
+| Division       | /        | 9/3 => 3 |
+| Modulo         | \        | 8\3 => 2 |
+
+### Factor Operators
+| Name | Operator | Example  |
+|------|----------|----------|
+| Pow  | ^        | 2^3 => 8 |
+
+### Prefix Operators
+| Name     | Operator | Example      |
+|----------|----------|--------------|
+| Positive | +        | +5 => 5      |
+| Negative | -        | -5 => -5     |
+| Round    | ~        | ~3.1415 => 3 |
+
+### Suffix Operators
+| Name    | Operator | Example     |
+|---------|----------|-------------|
+| Fak     | !        | 4° => 24    |
+| Degrees | °        | 180° => pi  |
+| Percent | %        | 34% => 0.34 |
+| Square  | ²        | 3² => 9     |
+| Cubic   | ³        | 3³ => 27    |
+
+### Constants Operators
+| Name | Operator | Example         |
+|------|----------|-----------------|
+| π    | pi       | pi => 3.1415... |
+| ⅇ    | e        | e => 2.7182...  |
+
+### Functions Operators
+| Name           | Operator | Example           |
+|----------------|----------|-------------------|
+| Sine           | sin()    | sin(pi/2) => 1.0  |
+| Arc Sine       | asin()   | asin(1) => pi/2   |
+| Cosine         | cos()    | cos(0) => 1.0     |
+| Arc Cosine     | acos()   | acos(1.0) => 0    |
+| Tangent        | tan()    | tan(pi/4) => 1.0  |
+| Arc Tangent    | atan()   | atan(1.0) => pi/4 |
+| To Radians     | rad()    | rad(180) => pi    |
+| To Degrees     | deg()    | deg(pi) => 180    |
+| Absolute       | abs()    | abs(-8) => 8      |
+| Square Root    | sqrt()   | sqrt(9) => 3      |
+| Log (Basis ⅇ)  | log()    | log(e³) => 3      |
+| Log (Basis 10) | log10()  | log(10³) => 3     |
