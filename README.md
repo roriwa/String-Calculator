@@ -96,7 +96,7 @@ class Test{
 ### Suffix Operators
 | Name    | Operator | Example     |
 |---------|----------|-------------|
-| Fak     | !        | 4° => 24    |
+| Fak     | !        | 4! => 24    |
 | Degrees | °        | 180° => pi  |
 | Percent | %        | 34% => 0.34 |
 | Square  | ²        | 3² => 9     |
