@@ -1,12 +1,20 @@
 package hwr.oop.stringcalculator;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
 public class ValidateInputTests {
+
+    private StringCalculator calculator;
+
+    @BeforeEach
+    void setUp(){
+        calculator = new StringCalculator();
+    }
+
     @Test
     void testValidInputEquation(){
-        StringCalculator calculator = new StringCalculator();
         try{
             calculator.solve("1");
         } catch (RuntimeException e){
@@ -16,7 +24,6 @@ public class ValidateInputTests {
 
     @Test
     void testInvalidInputEquation(){
-        StringCalculator calculator = new StringCalculator();
         try{
             calculator.solve("?");
         } catch (RuntimeException e){
