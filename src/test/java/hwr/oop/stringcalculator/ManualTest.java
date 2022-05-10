@@ -23,9 +23,10 @@ public class ManualTest {
             try{
                 double result = calculator.solve(this.inputEquation);
                 this.printResult(result);
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            } finally {
                 this.readInput();
-            } catch (Exception e){
-                e.printStackTrace();
             }
         }
     }
