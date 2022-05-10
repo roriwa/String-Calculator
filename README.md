@@ -6,7 +6,7 @@ Java class to evaluate Mathematical Strings
 String-Calculator is a Java-Class to safely evaluate a Mathematical Equation.
 This Equation can be (e.g.) from a User.
 
-From Basic Operators like plus and minus it features also small helpful additions like the `°` (`90° => π/4`) suffix to convert degrees to radian.
+From Basic Operators like plus and minus it features also small helpful additions like the `°`-suffix to convert degrees to radian (`90° => π/4`).
 
 It is designed to make it easy to customize the Calculator by adding custom functions, variables or even operators.
 It is also possible to overwrite an existing operator
@@ -46,16 +46,16 @@ class Test{
 
 | Number | Feature                    | Tests |
 |--------|----------------------------|-------|
-| 1      | Basic Operations (+,-,*,/) | ❔️    |
-| 2      | Custom Basic Operations    | ❔️    |
-| 3      | Prefix Operators (+,-)     | ❔️    |
-| 4      | Custom Prefix Operators    | ❔️    |
-| 5      | Suffix Operators (!,°,²,³) | ❔️    |
-| 6      | Custom Suffix Operators    | ❔️    |
-| 7      | Functions                  | ❔️    |
-| 8      | Custom Functions           | ❔️    |
-| 9      | Constants (π,ⅇ)            | ❔️    |
-| 10     | Custom Variables           | ❔️    |
+| 1      | Basic Operations (+,-,*,/) | ️✅️   |
+| 2      | Custom Basic Operations    | ️✅️   |
+| 3      | Prefix Operators (+,-,~)   | ️✅️   |
+| 4      | Custom Prefix Operators    | ️✅️   |
+| 5      | Suffix Operators (!,°,²,³) | ️✅️   |
+| 6      | Custom Suffix Operators    | ️✅️   |
+| 7      | Functions (sin, sqrt, log) | ️✅️   |
+| 8      | Custom Functions           | ️✅️   |
+| 9      | Constants (π,ⅇ)            | ️✅️   |
+| 10     | Custom Variables           | ️✅️   |
 
 
 ## Additional Dependencies
@@ -66,7 +66,26 @@ class Test{
 | 1      | /               | /                      | /                    |
 
 
+## Problems during development
+- order of operations (e.g. Multiplication before Addition)
+- Rounding Errors during tests (e.g. result is 0.99999999 instead of 1.0)
+- how to save functions/callable
+
+---
+
 ## Complete Index of all (default) Operations
+
+Order of Operations priority
+
+| Priority | Name                       |
+|----------|----------------------------|
+| 6        | Numbers/Variable/Functions |
+| 5        | Suffix-Operators           |
+| 4        | Factor-Operators           |
+| 3        | Prefix-Operator            |
+| 2        | Term-Operators             |
+| 1        | Expression-Operators       |
+
 
 ### Expression Operators
 | Name        | Operator | Example  |
