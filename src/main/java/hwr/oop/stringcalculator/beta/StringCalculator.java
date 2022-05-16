@@ -1,11 +1,11 @@
-package hwr.oop.stringcalculator;
+package hwr.oop.stringcalculator.beta;
 
 import java.util.HashMap;
 import java.util.function.DoubleBinaryOperator;
 import java.util.function.DoubleFunction;
 
 
-public class StringCalculatorV1 {
+public class StringCalculator {
 
     /*
      * attributes for operations
@@ -32,11 +32,11 @@ public class StringCalculatorV1 {
      * constructor
      */
 
-    public StringCalculatorV1(){
+    public StringCalculator(){
         this(true);
     }
 
-    public StringCalculatorV1(boolean setDefaultLogic){
+    public StringCalculator(boolean setDefaultLogic){
         this.expressionOperators = new HashMap<>();
         this.termOperators = new HashMap<>();
         this.factorOperators = new HashMap<>();
