@@ -9,36 +9,36 @@ public class PrefixTests {
     private StringCalculator calculator;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         calculator = new StringCalculator();
     }
 
     @Test
-    void testPositivePrefix(){
+    void testPositivePrefix() {
         double result = calculator.solve("+10");
         Assertions.assertThat(result).isEqualTo(+10);
     }
 
     @Test
-    void testNegativePrefix(){
+    void testNegativePrefix() {
         double result = calculator.solve("-10");
         Assertions.assertThat(result).isEqualTo(-10);
     }
 
     @Test
-    void testDoubleNegativePrefix(){
+    void testDoubleNegativePrefix() {
         double result = calculator.solve("--10");
         Assertions.assertThat(result).isEqualTo(10);
     }
 
     @Test
-    void testRoundPrefix(){
+    void testRoundPrefix() {
         double result = calculator.solve("~3.1415");
         Assertions.assertThat(result).isEqualTo(3);
     }
 
     @Test
-    void testCustomPrefix(){
+    void testCustomPrefix() {
         calculator.setPrefixOperators(':', (a) -> Math.E * a);
         double result = calculator.solve(":7");
         Assertions.assertThat(result).isEqualTo(Math.E * 7);

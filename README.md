@@ -1,4 +1,5 @@
 # String-Calculator
+
 Java class to evaluate Mathematical Strings
 
 ## Abstract
@@ -6,7 +7,8 @@ Java class to evaluate Mathematical Strings
 String-Calculator is a Java-Class to safely evaluate a Mathematical Equation.
 This Equation can be (e.g.) from a User.
 
-From Basic Operators like plus and minus it features also small helpful additions like the `°`-suffix to convert degrees to radian (`90° => π/4`).
+From Basic Operators like plus and minus it features also small helpful additions like the `°`-suffix to convert degrees
+to radian (`90° => π/4`).
 
 It is designed to make it easy to customize the Calculator by adding custom functions, variables or even operators.
 It is also possible to overwrite an existing operator
@@ -14,8 +16,8 @@ It is also possible to overwrite an existing operator
 or to create a complete new operator
 (eg `calculator.setPrefixOperators('~', (x) -> Math.round(x));`, `~0.6845 => 1.0`)
 
-
 ### Usage Example
+
 ```java
 import hwr.oop.stringcalculator.StringCalculator;
 class Test{
@@ -30,8 +32,11 @@ class Test{
     }
 }
 ```
+
 [TODO]: # (Write a short description of your project.)
+
 [TODO]: # (State most important features.)
+
 [TODO]: # (State the most interesting problems you encountered during the project.)
 
 ## Feature List
@@ -57,16 +62,16 @@ class Test{
 | 9      | Constants (π,ⅇ)            | ️✅️   |
 | 10     | Custom Variables           | ️✅️   |
 
-
 ## Additional Dependencies
+
 > No Additional Dependencies Required
 
 | Number | Dependency Name | Dependency Description | Why is it necessary? |
 |--------|-----------------|------------------------|----------------------|
 | 1      | /               | /                      | /                    |
 
-
 ## Problems during development
+
 - order of operations (e.g. Multiplication before Addition)
 - Rounding Errors during tests (e.g. result is 0.99999999 instead of 1.0)
 - how to save functions/callable
@@ -86,14 +91,15 @@ Order of Operations priority
 | 2        | Term-Operators             |
 | 1        | Expression-Operators       |
 
-
 ### Expression Operators
+
 | Name        | Operator | Example  |
 |-------------|----------|----------|
 | Addition    | +        | 2+3 => 5 |
 | Subtraction | -        | 5-4 => 1 |
 
 ### Term Operators
+
 | Name           | Operator | Example  |
 |----------------|----------|----------|
 | Multiplication | *        | 2*3 => 6 |
@@ -101,11 +107,13 @@ Order of Operations priority
 | Modulo         | \        | 8\3 => 2 |
 
 ### Factor Operators
+
 | Name | Operator | Example  |
 |------|----------|----------|
 | Pow  | ^        | 2^3 => 8 |
 
 ### Prefix Operators
+
 | Name     | Operator | Example      |
 |----------|----------|--------------|
 | Positive | +        | +5 => 5      |
@@ -113,6 +121,7 @@ Order of Operations priority
 | Round    | ~        | ~3.1415 => 3 |
 
 ### Suffix Operators
+
 | Name    | Operator | Example     |
 |---------|----------|-------------|
 | Fak     | !        | 4! => 24    |
@@ -122,12 +131,14 @@ Order of Operations priority
 | Cubic   | ³        | 3³ => 27    |
 
 ### Constants Operators
+
 | Name | Operator | Example         |
 |------|----------|-----------------|
 | π    | pi       | pi => 3.1415... |
 | ⅇ    | e        | e => 2.7182...  |
 
 ### Functions Operators
+
 | Name           | Operator | Example           |
 |----------------|----------|-------------------|
 | Sine           | sin()    | sin(pi/2) => 1.0  |

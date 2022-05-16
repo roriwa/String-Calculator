@@ -9,12 +9,12 @@ public class SuffixTests {
     private StringCalculator calculator;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         calculator = new StringCalculator();
     }
 
     @Test
-    void testFacultative(){
+    void testFacultative() {
         double result;
         result = calculator.solve("1!");
         Assertions.assertThat(result).isEqualTo(1);
@@ -27,25 +27,25 @@ public class SuffixTests {
     }
 
     @Test
-    void testAngle(){
+    void testAngle() {
         double result = calculator.solve("34%");
         Assertions.assertThat(result).isEqualTo(0.34);
     }
 
     @Test
-    void testSquare(){
+    void testSquare() {
         double result = calculator.solve("5²");
         Assertions.assertThat(result).isEqualTo(25);
     }
 
     @Test
-    void testCubic(){
+    void testCubic() {
         double result = calculator.solve("3³");
         Assertions.assertThat(result).isEqualTo(27);
     }
 
     @Test
-    void testCustomSuffix(){
+    void testCustomSuffix() {
         calculator.setSuffixOperators('?', (x) -> (x != 0) ? 1.0 : 0.0);
         double result;
         result = calculator.solve("5?");

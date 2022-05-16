@@ -9,24 +9,24 @@ public class ConstantsAndVariablesTests {
     private StringCalculator calculator;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         calculator = new StringCalculator();
     }
 
     @Test
-    void testPi(){
+    void testPi() {
         double result = calculator.solve("pi");
         Assertions.assertThat(result).isEqualTo(Math.PI);
     }
 
     @Test
-    void testE(){
+    void testE() {
         double result = calculator.solve("e");
         Assertions.assertThat(result).isEqualTo(Math.E);
     }
 
     @Test
-    void testX(){
+    void testX() {
         double x = 4567.9876;
         calculator.setVariable("x", x);
         double result = calculator.solve("x");
@@ -34,7 +34,7 @@ public class ConstantsAndVariablesTests {
     }
 
     @Test
-    void testVariableOverride(){
+    void testVariableOverride() {
         double x1 = 9876.5432;
         double x2 = 1234.5678;
         calculator.setVariable("x", x1);
@@ -44,11 +44,11 @@ public class ConstantsAndVariablesTests {
     }
 
     @Test
-    void testMissingVariable(){
+    void testMissingVariable() {
         double result;
-        try{
+        try {
             result = calculator.solve("x");
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return;
         }
         Assertions.fail("missing variable was accepted: " + result);

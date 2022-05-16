@@ -1,7 +1,7 @@
 package hwr.oop.stringcalculator;
 
 public class DefaultCalculatorData {
-    public static void fillDataContainer(CalculatorDataContainer container){
+    public static void fillDataContainer(CalculatorDataContainer container) {
         initialiseBasicOperators(container);  // 0x0
         initialisePrefixOperators(container);  // x0
         initialiseSuffixOperators(container);  // 0x
@@ -13,7 +13,7 @@ public class DefaultCalculatorData {
      * initialisation default operations, functions, etc
      */
 
-    private static void initialiseBasicOperators(CalculatorDataContainer container){
+    private static void initialiseBasicOperators(CalculatorDataContainer container) {
         container.setExpressionOperator('+', Double::sum);
         container.setExpressionOperator('-', (a, b) -> a - b);
         container.setTermOperator('*', (a, b) -> a * b);
@@ -23,16 +23,16 @@ public class DefaultCalculatorData {
         container.setFactorOperator('^', Math::pow);
     }
 
-    private static void initialisePrefixOperators(CalculatorDataContainer container){
+    private static void initialisePrefixOperators(CalculatorDataContainer container) {
         container.setPrefixOperators('+', (a) -> +a);
         container.setPrefixOperators('-', (a) -> -a);
-        container.setPrefixOperators('~', (a) -> (double)Math.round(a));
+        container.setPrefixOperators('~', (a) -> (double) Math.round(a));
     }
 
-    private static void initialiseSuffixOperators(CalculatorDataContainer container){
+    private static void initialiseSuffixOperators(CalculatorDataContainer container) {
         container.setSuffixOperators('!', (a) -> {
             double result = 1;
-            for(int i = 1; i <= a; i++){
+            for (int i = 1; i <= a; i++) {
                 result *= i;
             }
             return result;
@@ -43,12 +43,12 @@ public class DefaultCalculatorData {
         container.setSuffixOperators('³', (x) -> Math.pow(x, 3));  // should be pretty helpful
     }
 
-    private static void initialiseConstants(CalculatorDataContainer container){
+    private static void initialiseConstants(CalculatorDataContainer container) {
         container.setVariable("pi", Math.PI);
         container.setVariable("e", Math.E);
     }
 
-    private static void initialiseFunctions(CalculatorDataContainer container){
+    private static void initialiseFunctions(CalculatorDataContainer container) {
         container.setFunction("sin", Math::sin);
         container.setFunction("asin", Math::asin);
         container.setFunction("cos", Math::cos);

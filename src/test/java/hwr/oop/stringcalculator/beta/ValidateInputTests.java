@@ -9,24 +9,24 @@ public class ValidateInputTests {
     private StringCalculator calculator;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         calculator = new StringCalculator();
     }
 
     @Test
-    void testValidInputEquation(){
-        try{
+    void testValidInputEquation() {
+        try {
             calculator.solve("1");
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             Assertions.fail("valid equation wasn't accepted");
         }
     }
 
     @Test
-    void testInvalidInputEquation(){
-        try{
+    void testInvalidInputEquation() {
+        try {
             calculator.solve("?");
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             return;
         }
         Assertions.fail("invalid equation was accepted");
