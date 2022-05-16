@@ -27,7 +27,7 @@ public class CalculatorDataContainer {
         this.functions = new HashMap<>();
     }
 
-    public static CalculatorDataContainer createWithDefault() {
+    public static CalculatorDataContainer createNewWithDefault() {
         CalculatorDataContainer container = new CalculatorDataContainer();
         DefaultCalculatorData.fillDataContainer(container);
         return container;

@@ -8,8 +8,8 @@ class EquationSolver {
     private char character;
 
     public EquationSolver(final String equation, final CalculatorDataContainer dataContainer) {
-        if (equation.length() == 0) {
-            throw new RuntimeException("equation is empty");
+        if (equation == null || equation.length() == 0) {
+            throw new RuntimeException("equation is null or empty");
         }
         this.equation = equation;
         this.dataContainer = dataContainer;

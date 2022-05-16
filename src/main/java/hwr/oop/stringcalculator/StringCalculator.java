@@ -11,7 +11,7 @@ public class StringCalculator extends CalculatorDataContainer {
         return StringCalculator.solve(equation, this);
     }
 
-    public static double solve(final String equation, CalculatorDataContainer dataContainer) {
+    public static double solve(final String equation, final CalculatorDataContainer dataContainer) {
         EquationSolver solver = new EquationSolver(equation, dataContainer);
         return solver.resolve();
     }
