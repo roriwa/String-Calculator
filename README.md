@@ -49,18 +49,18 @@ class Test{
 | Failed:                 | ❌️   |
 | Not Tested/Implemented: | ️❔   |
 
-| Number | Feature                    | Tests |
-|--------|----------------------------|-------|
-| 1      | Basic Operations (+,-,*,/) | ️✅️   |
-| 2      | Custom Basic Operations    | ️✅️   |
-| 3      | Prefix Operators (+,-,~)   | ️✅️   |
-| 4      | Custom Prefix Operators    | ️✅️   |
-| 5      | Suffix Operators (!,°,²,³) | ️✅️   |
-| 6      | Custom Suffix Operators    | ️✅️   |
-| 7      | Functions (sin, sqrt, log) | ️✅️   |
-| 8      | Custom Functions           | ️✅️   |
-| 9      | Constants (π,ⅇ)            | ️✅️   |
-| 10     | Custom Variables           | ️✅️   |
+| Feature                    | Tests |
+|----------------------------|-------|
+| Basic Operations (+,-,*,/) | ️✅️   |
+| Custom Basic Operations    | ️✅️   |
+| Prefix Operators (+,-,~)   | ️✅️   |
+| Custom Prefix Operators    | ️✅️   |
+| Suffix Operators (!,°,²,³) | ️✅️   |
+| Custom Suffix Operators    | ️✅️   |
+| Functions (sin, sqrt, log) | ️✅️   |
+| Custom Functions           | ️✅️   |
+| Constants (π,ⅇ)            | ️✅️   |
+| Custom Variables           | ️✅️   |
 
 ## Additional Dependencies
 
@@ -100,11 +100,11 @@ Order of Operations priority
 
 ### Term Operators
 
-| Name           | Operator | Example  |
-|----------------|----------|----------|
-| Multiplication | *        | 2*3 => 6 |
-| Division       | /        | 9/3 => 3 |
-| Modulo         | \        | 8\3 => 2 |
+| Name             | Operator | Example  |
+|------------------|----------|----------|
+| Multiplication   | *        | 2*3 => 6 |
+| Division         | /        | 9/3 => 3 |
+| Modulo/Remainder | \        | 8\3 => 2 |
 
 ### Factor Operators
 
@@ -124,7 +124,7 @@ Order of Operations priority
 
 | Name    | Operator | Example     |
 |---------|----------|-------------|
-| Fak     | !        | 4! => 24    |
+| Faculty | !        | 4! => 24    |
 | Degrees | °        | 180° => pi  |
 | Percent | %        | 34% => 0.34 |
 | Square  | ²        | 3² => 9     |
@@ -132,24 +132,24 @@ Order of Operations priority
 
 ### Constants Operators
 
-| Name | Operator | Example         |
-|------|----------|-----------------|
-| π    | pi       | pi => 3.1415... |
-| ⅇ    | e        | e => 2.7182...  |
+| Functions | Name | Example         |
+|-----------|------|-----------------|
+| π         | pi   | pi => 3.1415... |
+| ⅇ         | e    | e => 2.7182...  |
 
 ### Functions Operators
 
-| Name           | Operator | Example           |
-|----------------|----------|-------------------|
-| Sine           | sin()    | sin(pi/2) => 1.0  |
-| Arc Sine       | asin()   | asin(1) => pi/2   |
-| Cosine         | cos()    | cos(0) => 1.0     |
-| Arc Cosine     | acos()   | acos(1.0) => 0    |
-| Tangent        | tan()    | tan(pi/4) => 1.0  |
-| Arc Tangent    | atan()   | atan(1.0) => pi/4 |
-| To Radians     | rad()    | rad(180) => pi    |
-| To Degrees     | deg()    | deg(pi) => 180    |
-| Absolute       | abs()    | abs(-8) => 8      |
-| Square Root    | sqrt()   | sqrt(9) => 3      |
-| Log (Basis ⅇ)  | log()    | log(e³) => 3      |
-| Log (Basis 10) | log10()  | log(10³) => 3     |
+| Functions      | Name    | Example           |
+|----------------|---------|-------------------|
+| Sine           | sin()   | sin(pi/2) => 1.0  |
+| Arc Sine       | asin()  | asin(1) => pi/2   |
+| Cosine         | cos()   | cos(0) => 1.0     |
+| Arc Cosine     | acos()  | acos(1.0) => 0    |
+| Tangent        | tan()   | tan(pi/4) => 1.0  |
+| Arc Tangent    | atan()  | atan(1.0) => pi/4 |
+| To Radians     | rad()   | rad(180) => pi    |
+| To Degrees     | deg()   | deg(pi) => 180    |
+| Absolute       | abs()   | abs(-8) => 8      |
+| Square Root    | sqrt()  | sqrt(9) => 3      |
+| Log (Basis ⅇ)  | log()   | log(e³) => 3      |
+| Log (Basis 10) | log10() | log(10³) => 3     |
