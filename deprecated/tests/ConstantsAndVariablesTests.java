@@ -1,4 +1,4 @@
-package hwr.oop.stringcalculator.beta;
+package hwr.oop.stringcalculator;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

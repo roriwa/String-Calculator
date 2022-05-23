@@ -1,4 +1,4 @@
-package hwr.oop.stringcalculator.beta;
+package hwr.oop.stringcalculator;
 
 import java.util.HashMap;
 import java.util.function.DoubleBinaryOperator;
