@@ -1,7 +1,7 @@
 package hwr.oop.stringcalculator;
 
 public class DefaultCalculatorData {
-    public static void fillDataContainer(CalculatorDataContainer container) {
+    public static void setDefaultData(CalculatorDataContainer container) {
         initialiseBasicOperators(container);  // 0x0
         initialisePrefixOperators(container);  // x0
         initialiseSuffixOperators(container);  // 0x

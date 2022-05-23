@@ -4,7 +4,7 @@ package hwr.oop.stringcalculator;
 public class StringCalculator extends CalculatorDataContainer {
 
     public StringCalculator() {
-        DefaultCalculatorData.fillDataContainer(this);
+        DefaultCalculatorData.setDefaultData(this);
     }
 
     public double solve(final String equation) {

@@ -29,7 +29,7 @@ public class CalculatorDataContainer {
 
     public static CalculatorDataContainer createNewWithDefault() {
         CalculatorDataContainer container = new CalculatorDataContainer();
-        DefaultCalculatorData.fillDataContainer(container);
+        DefaultCalculatorData.setDefaultData(container);
         return container;
     }
 
