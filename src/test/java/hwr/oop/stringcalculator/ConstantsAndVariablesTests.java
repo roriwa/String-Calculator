@@ -53,4 +53,14 @@ public class ConstantsAndVariablesTests {
         }
         Assertions.fail("missing variable was accepted: " + result);
     }
+
+    @Test
+    void testIllegalVariableName() {
+        try {
+            calculator.setVariable("1234", 69);
+        } catch (RuntimeException e) {
+            return;
+        }
+        Assertions.fail("illegal variable-name (a number) was accepted");
+    }
 }

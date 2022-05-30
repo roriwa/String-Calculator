@@ -87,9 +87,39 @@ public class FunctionsTests {
     }
 
     @Test
+    void testMissingFunction() {
+        try{
+            calculator.solve("error(7)");
+        } catch (RuntimeException e){
+            return;
+        }
+        Assertions.fail("missing function-name was accepted");
+    }
+
+    @Test
+    void testMissingBracket() {
+        try{
+            calculator.solve("abs(-7");
+        } catch (RuntimeException e){
+            return;
+        }
+        Assertions.fail("function with missing bracket was");
+    }
+
+    @Test
     void testCustomFunction() {
         calculator.setFunction("test", (x) -> 10 * x);
         double result = calculator.solve("test(10)");
         Assertions.assertThat(result).isEqualTo(100);
+    }
+
+    @Test
+    void testIllegalFunctionsName() {
+        try{
+            calculator.setFunction("4567", (x) -> x);
+        } catch (RuntimeException e){
+            return;
+        }
+        Assertions.fail("illegal function-name (a number) was accepted");
     }
 }
