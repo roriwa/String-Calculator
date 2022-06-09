@@ -1,13 +1,15 @@
-package hwr.oop.stringcalculator;
+package hwr.oop.stringcalculator.equationssolver;
 
+import hwr.oop.stringcalculator.equationsolver.EquationSolver;
+import hwr.oop.stringcalculator.operationscontainer.OperationsContainer;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class EquationsSolverTest {
+public class EquationsSolverTests {
     @Test
     void testEmptyEquationException(){
         try{
-            CalculatorDataContainer dataContainer = CalculatorDataContainer.createNewWithDefault();
+            OperationsContainer dataContainer = OperationsContainer.createNewWithDefault();
             new EquationSolver("", dataContainer);
         } catch (RuntimeException e){
             return;
@@ -19,7 +21,7 @@ public class EquationsSolverTest {
     void testIncompleteEquation(){
         double result;
         try{
-            CalculatorDataContainer dataContainer = CalculatorDataContainer.createNewWithDefault();
+            OperationsContainer dataContainer = OperationsContainer.createNewWithDefault();
             EquationSolver solver = new EquationSolver("2+3?", dataContainer);
             result = solver.resolve();
         } catch (RuntimeException e){
@@ -32,7 +34,7 @@ public class EquationsSolverTest {
     void testMissingBracket(){
         double result;
         try{
-            CalculatorDataContainer dataContainer = CalculatorDataContainer.createNewWithDefault();
+            OperationsContainer dataContainer = OperationsContainer.createNewWithDefault();
             EquationSolver solver = new EquationSolver("3*(2+4", dataContainer);
             result = solver.resolve();
         } catch (RuntimeException e){

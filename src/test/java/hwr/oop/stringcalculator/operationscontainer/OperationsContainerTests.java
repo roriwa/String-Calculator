@@ -1,11 +1,11 @@
-package hwr.oop.stringcalculator;
+package hwr.oop.stringcalculator.operationscontainer;
 
 import org.junit.jupiter.api.Test;
 
-public class DataContainerTest {
+public class OperationsContainerTests {
     @Test
     void testAddRemoveOperations(){
-        CalculatorDataContainer container = CalculatorDataContainer.createNewWithDefault();
+        OperationsContainer container = OperationsContainer.createNewWithDefault();
 
         container.removeExpressionOperator('+');
         container.removeTermOperator('*');

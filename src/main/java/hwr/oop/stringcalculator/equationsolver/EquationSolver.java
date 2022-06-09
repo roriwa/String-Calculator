@@ -1,13 +1,15 @@
-package hwr.oop.stringcalculator;
+package hwr.oop.stringcalculator.equationsolver;
 
-class EquationSolver {
+import hwr.oop.stringcalculator.operationscontainer.OperationsContainer;
+
+public class EquationSolver {
     private final String equation;
-    private final CalculatorDataContainer dataContainer;
+    private final OperationsContainer dataContainer;
 
     private int position = -1;
     private char character;
 
-    public EquationSolver(final String equation, final CalculatorDataContainer dataContainer) {
+    public EquationSolver(final String equation, final OperationsContainer dataContainer) {
         if (equation == null || equation.length() == 0) {
             throw new RuntimeException("equation is null or empty");
         }
@@ -51,10 +53,10 @@ class EquationSolver {
         double value = parseTerm();
         while (true) {
             char operator = this.character;
-            if (this.dataContainer.expressionOperators.containsKey(operator)) {
+            if (this.dataContainer.hasExpressionOperator(operator)) {
                 loadNextCharacter();
                 double other = parseTerm();
-                value = this.dataContainer.expressionOperators.get(operator).applyAsDouble(value, other);
+                value = this.dataContainer.getExpressionOperator(operator).applyAsDouble(value, other);
                 continue;
             }
             break;
@@ -67,10 +69,10 @@ class EquationSolver {
         double value = parseFactor();
         while (true) {
             char operator = this.character;
-            if (this.dataContainer.termOperators.containsKey(operator)) {
+            if (this.dataContainer.hasTermOperator(operator)) {
                 loadNextCharacter();
                 double other = parseFactor();
-                value = this.dataContainer.termOperators.get(operator).applyAsDouble(value, other);
+                value = this.dataContainer.getTermOperator(operator).applyAsDouble(value, other);
                 continue;
             }
             return value;
@@ -83,10 +85,10 @@ class EquationSolver {
         double value;
 
         char operator = this.character;
-        if (this.dataContainer.prefixOperators.containsKey(operator)) {
+        if (this.dataContainer.hasPrefixOperator(operator)) {
             loadNextCharacter();
             value = this.parseFactor();
-            return this.dataContainer.prefixOperators.get(operator).apply(value);
+            return this.dataContainer.getPrefixOperator(operator).apply(value);
         }
 
         int startPos = this.position;  // remember start-position to cut out a substring
@@ -110,15 +112,15 @@ class EquationSolver {
                 if (!this.nextCharacterIs(')')) {
                     throw new RuntimeException("Missing ')' after argument of " + varOrFunctionName);
                 }
-                if (!this.dataContainer.functions.containsKey(varOrFunctionName)) {
+                if (!this.dataContainer.hasFunction(varOrFunctionName)) {
                     throw new RuntimeException("Unknown function: '" + varOrFunctionName + "'");
                 }
-                value = this.dataContainer.functions.get(varOrFunctionName).apply(value);
+                value = this.dataContainer.getFunction(varOrFunctionName).apply(value);
             } else {
-                if (!this.dataContainer.variables.containsKey(varOrFunctionName)) {
+                if (!this.dataContainer.hasVariable(varOrFunctionName)) {
                     throw new RuntimeException("Unknown variable: '" + varOrFunctionName + "'");
                 }
-                value = this.dataContainer.variables.get(varOrFunctionName);
+                value = this.dataContainer.getVariable(varOrFunctionName);
             }
         } else {
             throw new RuntimeException("Unexpected Character: '" + this.character + "'");
@@ -126,15 +128,15 @@ class EquationSolver {
 
         // update, because key has changed
         operator = this.character;
-        if (this.dataContainer.suffixOperators.containsKey(operator)) {
+        if (this.dataContainer.hasSuffixOperator(operator)) {
             loadNextCharacter();
-            value = this.dataContainer.suffixOperators.get(operator).apply(value);
+            value = this.dataContainer.getSuffixOperator(operator).apply(value);
         }
         operator = this.character;
-        if (this.dataContainer.factorOperators.containsKey(operator)) {
+        if (this.dataContainer.hasFactorOperator(operator)) {
             loadNextCharacter();
             double other = this.parseFactor();
-            value = this.dataContainer.factorOperators.get(operator).applyAsDouble(value, other);
+            value = this.dataContainer.getFactorOperator(operator).applyAsDouble(value, other);
         }
 
         return value;
