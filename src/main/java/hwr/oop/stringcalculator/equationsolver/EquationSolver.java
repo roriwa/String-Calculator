@@ -4,17 +4,17 @@ import hwr.oop.stringcalculator.operationscontainer.OperationsContainer;
 
 public class EquationSolver {
     private final String equation;
-    private final OperationsContainer dataContainer;
+    private final OperationsContainer operations;
 
     private int position = -1;
     private char character;
 
-    public EquationSolver(final String equation, final OperationsContainer dataContainer) {
+    public EquationSolver(final String equation, final OperationsContainer operationsContainer) {
         if (equation == null || equation.length() == 0) {
-            throw new RuntimeException("equation is null or empty");
+            throw new EmptyEquationException("equation is null or empty");
         }
         this.equation = equation;
-        this.dataContainer = dataContainer;
+        this.operations = operationsContainer;
     }
 
     public double resolve() {
@@ -22,7 +22,7 @@ public class EquationSolver {
             this.loadNextCharacter();
             double x = this.parseExpression();
             if (this.position < equation.length()) {
-                throw new RuntimeException("Unexpected Character at the end of the equation: '" + this.character + "'");
+                throw new EndOfEquationException("Unexpected Character at the end of the equation: '" + this.character + "'");
             }
             return x;
         } finally {
@@ -53,10 +53,10 @@ public class EquationSolver {
         double value = parseTerm();
         while (true) {
             char operator = this.character;
-            if (this.dataContainer.hasExpressionOperator(operator)) {
+            if (this.operations.hasExpressionOperator(operator)) {
                 loadNextCharacter();
                 double other = parseTerm();
-                value = this.dataContainer.getExpressionOperator(operator).applyAsDouble(value, other);
+                value = this.operations.getExpressionOperator(operator).applyAsDouble(value, other);
                 continue;
             }
             break;
@@ -69,10 +69,10 @@ public class EquationSolver {
         double value = parseFactor();
         while (true) {
             char operator = this.character;
-            if (this.dataContainer.hasTermOperator(operator)) {
+            if (this.operations.hasTermOperator(operator)) {
                 loadNextCharacter();
                 double other = parseFactor();
-                value = this.dataContainer.getTermOperator(operator).applyAsDouble(value, other);
+                value = this.operations.getTermOperator(operator).applyAsDouble(value, other);
                 continue;
             }
             return value;
@@ -85,17 +85,17 @@ public class EquationSolver {
         double value;
 
         char operator = this.character;
-        if (this.dataContainer.hasPrefixOperator(operator)) {
+        if (this.operations.hasPrefixOperator(operator)) {
             loadNextCharacter();
             value = this.parseFactor();
-            return this.dataContainer.getPrefixOperator(operator).apply(value);
+            return this.operations.getPrefixOperator(operator).apply(value);
         }
 
         int startPos = this.position;  // remember start-position to cut out a substring
         if (this.nextCharacterIs('(')) {
             value = this.parseExpression();
             if (!this.nextCharacterIs(')')) {
-                throw new RuntimeException("Missing ')'");
+                throw new MissingBracketException("Missing ')'");
             }
         } else if (this.characterIsNumber(false)) { // numbers
             while (this.characterIsNumber(true)) {
@@ -110,33 +110,33 @@ public class EquationSolver {
             if (this.nextCharacterIs('(')) {
                 value = parseExpression();
                 if (!this.nextCharacterIs(')')) {
-                    throw new RuntimeException("Missing ')' after argument of " + varOrFunctionName);
+                    throw new MissingBracketException("Missing ')' after argument of " + varOrFunctionName);
                 }
-                if (!this.dataContainer.hasFunction(varOrFunctionName)) {
-                    throw new RuntimeException("Unknown function: '" + varOrFunctionName + "'");
+                if (!this.operations.hasFunction(varOrFunctionName)) {
+                    throw new MissingFunctionException("Unknown function: '" + varOrFunctionName + "'");
                 }
-                value = this.dataContainer.getFunction(varOrFunctionName).apply(value);
+                value = this.operations.getFunction(varOrFunctionName).apply(value);
             } else {
-                if (!this.dataContainer.hasVariable(varOrFunctionName)) {
-                    throw new RuntimeException("Unknown variable: '" + varOrFunctionName + "'");
+                if (!this.operations.hasVariable(varOrFunctionName)) {
+                    throw new MissingVariableException("Unknown variable: '" + varOrFunctionName + "'");
                 }
-                value = this.dataContainer.getVariable(varOrFunctionName);
+                value = this.operations.getVariable(varOrFunctionName);
             }
         } else {
-            throw new RuntimeException("Unexpected Character: '" + this.character + "'");
+            throw new UnexpectedCharacterException("Unexpected Character: '" + this.character + "'");
         }
 
         // update, because key has changed
         operator = this.character;
-        if (this.dataContainer.hasSuffixOperator(operator)) {
+        if (this.operations.hasSuffixOperator(operator)) {
             loadNextCharacter();
-            value = this.dataContainer.getSuffixOperator(operator).apply(value);
+            value = this.operations.getSuffixOperator(operator).apply(value);
         }
         operator = this.character;
-        if (this.dataContainer.hasFactorOperator(operator)) {
+        if (this.operations.hasFactorOperator(operator)) {
             loadNextCharacter();
             double other = this.parseFactor();
-            value = this.dataContainer.getFactorOperator(operator).applyAsDouble(value, other);
+            value = this.operations.getFactorOperator(operator).applyAsDouble(value, other);
         }
 
         return value;
