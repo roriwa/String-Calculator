@@ -147,7 +147,7 @@ public class OperationsContainerTests {
             container.setVariable("", 69);
             container.setVariable("56", 420);
             container.setVariable("56ad", 69420);
-        } catch (InvalidVariableNameError e){
+        } catch (InvalidVariableNameException e){
             return;
         }
         Assertions.fail("empty or invalid variable name was accepted");
@@ -180,7 +180,7 @@ public class OperationsContainerTests {
             container.setFunction("", (value) -> value);
             container.setFunction("56", (value) -> value);
             container.setFunction("56ad", (value) -> value);
-        } catch (InvalidFunctionNameError e){
+        } catch (InvalidFunctionNameException e){
             return;
         }
         Assertions.fail("empty or invalid function name was accepted");
