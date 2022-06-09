@@ -1,8 +1,8 @@
 package hwr.oop.stringcalculator.operationscontainer;
 
-public class InvalidVariableName extends RuntimeException{
+public class InvalidVariableNameError extends RuntimeException{
     // I want that it is required to pass a Message
-    public InvalidVariableName(String message)
+    public InvalidVariableNameError(String message)
     {
         super(message);
     }

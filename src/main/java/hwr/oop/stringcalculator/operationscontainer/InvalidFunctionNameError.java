@@ -1,8 +1,8 @@
 package hwr.oop.stringcalculator.operationscontainer;
 
-public class InvalidFunctionName extends RuntimeException{
+public class InvalidFunctionNameError extends RuntimeException{
     // I want that it is required to pass a Message
-    public InvalidFunctionName(String message)
+    public InvalidFunctionNameError(String message)
     {
         super(message);
     }
