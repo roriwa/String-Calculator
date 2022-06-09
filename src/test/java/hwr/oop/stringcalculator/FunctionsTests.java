@@ -1,6 +1,7 @@
 package hwr.oop.stringcalculator;
 
 import hwr.oop.stringcalculator.equationsolver.MissingBracketException;
+import hwr.oop.stringcalculator.equationsolver.MissingFunctionException;
 import hwr.oop.stringcalculator.operationscontainer.InvalidFunctionNameException;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Percentage;
@@ -92,7 +93,7 @@ public class FunctionsTests {
     void testMissingFunction() {
         try{
             calculator.solve("error(7)");
-        } catch (RuntimeException e){
+        } catch (MissingFunctionException e){
             return;
         }
         Assertions.fail("missing function-name was accepted");
