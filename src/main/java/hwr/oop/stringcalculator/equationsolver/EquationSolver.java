@@ -22,7 +22,7 @@ public class EquationSolver {
             this.loadNextCharacter();
             double x = this.parseExpression();
             if (this.position < equation.length()) {
-                throw new EndOfEquationException("Unexpected Character at the end of the equation: '" + this.character + "'");
+                throw new UnexpectedEndOfEquationException("Unexpected Character at the end of the equation: '" + this.character + "'");
             }
             return x;
         } finally {

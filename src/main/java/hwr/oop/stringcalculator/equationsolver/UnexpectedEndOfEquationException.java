@@ -1,8 +1,8 @@
 package hwr.oop.stringcalculator.equationsolver;
 
-public class EndOfEquationException extends RuntimeException {
+public class UnexpectedEndOfEquationException extends RuntimeException {
     // it's required to pass a message for more details
-    public EndOfEquationException(String message) {
+    public UnexpectedEndOfEquationException(String message) {
         super(message);
     }
 }
