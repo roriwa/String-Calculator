@@ -1,5 +1,7 @@
 package hwr.oop.stringcalculator;
 
+import hwr.oop.stringcalculator.equationsolver.MissingBracketException;
+import hwr.oop.stringcalculator.operationscontainer.InvalidFunctionNameException;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.BeforeEach;
@@ -100,7 +102,7 @@ public class FunctionsTests {
     void testMissingBracket() {
         try{
             calculator.solve("abs(-7");
-        } catch (RuntimeException e){
+        } catch (MissingBracketException e){
             return;
         }
         Assertions.fail("function with missing bracket was");
@@ -117,7 +119,7 @@ public class FunctionsTests {
     void testIllegalFunctionsName() {
         try{
             calculator.setFunction("4567", (x) -> x);
-        } catch (RuntimeException e){
+        } catch (InvalidFunctionNameException e){
             return;
         }
         Assertions.fail("illegal function-name (a number) was accepted");

@@ -1,5 +1,6 @@
 package hwr.oop.stringcalculator;
 
+import hwr.oop.stringcalculator.equationsolver.UnexpectedCharacterException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ public class ValidateInputTests {
     void testInvalidInputEquation() {
         try {
             calculator.solve("?");
-        } catch (RuntimeException e) {
+        } catch (UnexpectedCharacterException e) {
             return;
         }
         Assertions.fail("invalid equation was accepted");

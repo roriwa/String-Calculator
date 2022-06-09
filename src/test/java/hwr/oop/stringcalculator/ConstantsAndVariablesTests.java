@@ -1,5 +1,7 @@
 package hwr.oop.stringcalculator;
 
+import hwr.oop.stringcalculator.equationsolver.MissingVariableException;
+import hwr.oop.stringcalculator.operationscontainer.InvalidVariableNameException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,7 +50,7 @@ public class ConstantsAndVariablesTests {
         double result;
         try {
             result = calculator.solve("x");
-        } catch (RuntimeException e) {
+        } catch (MissingVariableException e) {
             return;
         }
         Assertions.fail("missing variable was accepted: " + result);
@@ -58,7 +60,7 @@ public class ConstantsAndVariablesTests {
     void testIllegalVariableName() {
         try {
             calculator.setVariable("1234", 69);
-        } catch (RuntimeException e) {
+        } catch (InvalidVariableNameException e) {
             return;
         }
         Assertions.fail("illegal variable-name (a number) was accepted");
