@@ -130,7 +130,7 @@ public class OperationsContainer {
     // variables
 
     // 'double' instead of 'Double' to allow passing of integer or float
-    public void setVariable(String name, double value) throws InvalidVariableNameError {
+    public void setVariable(String name, double value) throws InvalidVariableNameException {
         this.validateVariableName(name);
         this.variables.put(name, value);
     }
@@ -147,15 +147,15 @@ public class OperationsContainer {
         this.variables.remove(name);
     }
 
-    private void validateVariableName(String name) throws InvalidVariableNameError {
+    private void validateVariableName(String name) throws InvalidVariableNameException {
         if (!name.matches("^[a-zA-Z]\\w*$")) {
-            throw new InvalidVariableNameError("invalid variable name");
+            throw new InvalidVariableNameException("invalid variable name");
         }
     }
 
     // functions
 
-    public void setFunction(String name, DoubleFunction<Double> function) throws InvalidFunctionNameError {
+    public void setFunction(String name, DoubleFunction<Double> function) throws InvalidFunctionNameException {
         this.validateFunctionName(name);
         this.functions.put(name, function);
     }
@@ -173,9 +173,9 @@ public class OperationsContainer {
         this.functions.remove(name);
     }
 
-    private void validateFunctionName(String name) throws InvalidFunctionNameError {
+    private void validateFunctionName(String name) throws InvalidFunctionNameException {
         if (!name.matches("^[a-zA-Z]\\w*$")) {
-            throw new InvalidFunctionNameError("invalid function name");
+            throw new InvalidFunctionNameException("invalid function name");
         }
     }
 }
