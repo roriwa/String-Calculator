@@ -20,7 +20,8 @@ or to create a complete new operator
 
 ```java
 import hwr.oop.stringcalculator.StringCalculator;
-class Test{
+
+class CalculatorProgram{
     public static void main(String[] args){
         StringCalculator calculator = new StringCalculator();
         calculator.setVariable("x", 5);
@@ -32,12 +33,6 @@ class Test{
     }
 }
 ```
-
-[TODO]: # (Write a short description of your project.)
-
-[TODO]: # (State most important features.)
-
-[TODO]: # (State the most interesting problems you encountered during the project.)
 
 ## Feature List
 
