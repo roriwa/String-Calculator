@@ -12,11 +12,7 @@ public class StringCalculator extends OperationsContainer {
     }
 
     public double solve(final String equation) {
-        return StringCalculator.solve(equation, this);
-    }
-
-    public static double solve(final String equation, final OperationsContainer dataContainer) {
-        EquationSolver solver = new EquationSolver(equation, dataContainer);
+        EquationSolver solver = new EquationSolver(equation, this);
         return solver.resolve();
     }
 }

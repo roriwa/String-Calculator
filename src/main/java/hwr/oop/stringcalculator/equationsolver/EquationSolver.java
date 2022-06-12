@@ -1,20 +1,22 @@
 package hwr.oop.stringcalculator.equationsolver;
 
-import hwr.oop.stringcalculator.operationscontainer.OperationsContainer;
-
 public class EquationSolver {
     private final String equation;
-    private final OperationsContainer operations;
+    private final OperationsHolder operations;
 
     private int position = -1;
     private char character;
 
-    public EquationSolver(final String equation, final OperationsContainer operationsContainer) {
+    public EquationSolver(final String equation, final OperationsHolder operationsContainer) {
+        this.validateEquation(equation);
+        this.equation = equation;
+        this.operations = operationsContainer;
+    }
+
+    private void validateEquation(String equation) throws EmptyEquationException {
         if (equation == null || equation.length() == 0) {
             throw new EmptyEquationException("equation is null or empty");
         }
-        this.equation = equation;
-        this.operations = operationsContainer;
     }
 
     public double resolve() {
