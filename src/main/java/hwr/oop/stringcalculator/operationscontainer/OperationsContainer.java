@@ -30,9 +30,9 @@ public class OperationsContainer implements OperationsHolder {
     }
 
     public static OperationsContainer createNewWithDefault() {
-        OperationsContainer container = new OperationsContainer();
-        DefaultOperationManager.setDefaultData(container);
-        return container;
+        OperationsBuilder builder = new OperationsBuilder();
+        builder.setAll(true);
+        return builder.build();
     }
 
     /*

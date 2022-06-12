@@ -1,19 +1,69 @@
 package hwr.oop.stringcalculator.operationscontainer;
 
-public class DefaultOperationManager {
-    public static void setDefaultData(OperationsContainer container) {
-        initialiseBasicOperators(container);  // 0x0
-        initialisePrefixOperators(container);  // x0
-        initialiseSuffixOperators(container);  // 0x
-        initialiseConstants(container);  // x
-        initialiseFunctions(container);  // x(0)
+public class OperationsBuilder {
+
+    private boolean basicOperations;
+    private boolean prefixOperations;
+    private boolean suffixOperations;
+    private boolean constants;
+    private boolean functions;
+
+    public void initialiseBasicOperations(boolean yes) {
+        this.basicOperations = yes;
+    }
+
+    public void initialisePrefixOperations(boolean yes) {
+        this.prefixOperations = yes;
+    }
+
+    public void initialiseSuffixOperations(boolean yes) {
+        this.suffixOperations = yes;
+    }
+
+    public void initialiseConstants(boolean yes) {
+        this.constants = yes;
+    }
+
+    public void initialiseFunctions(boolean yes) {
+        this.functions = yes;
+    }
+
+    public void setAll(boolean yes) {
+        this.initialiseBasicOperations(yes);
+        this.initialisePrefixOperations(yes);
+        this.initialiseSuffixOperations(yes);
+        this.initialiseConstants(yes);
+        this.initialiseFunctions(yes);
+    }
+
+    public OperationsContainer build() {
+        OperationsContainer container = new OperationsContainer();
+        this.setOnContainer(container);
+        return container;
+    }
+
+    public void setOnContainer(OperationsContainer container) {
+        if (this.basicOperations)  // 0x0
+            this.setBasicOperators(container);
+
+        if (this.prefixOperations)  // x0
+            this.setPrefixOperators(container);
+
+        if (this.suffixOperations)  // 0x
+            this.setSuffixOperators(container);
+
+        if (this.constants)  // x
+            this.setConstants(container);
+
+        if (this.functions)  // x(0)
+            this.setFunctions(container);
     }
 
     /*
      * initialisation default operations, functions, etc
      */
 
-    private static void initialiseBasicOperators(OperationsContainer container) {
+    private void setBasicOperators(OperationsContainer container) {
         container.setExpressionOperator('+', Double::sum);
         container.setExpressionOperator('-', (a, b) -> a - b);
         container.setTermOperator('*', (a, b) -> a * b);
@@ -23,13 +73,13 @@ public class DefaultOperationManager {
         container.setFactorOperator('^', Math::pow);
     }
 
-    private static void initialisePrefixOperators(OperationsContainer container) {
+    private void setPrefixOperators(OperationsContainer container) {
         container.setPrefixOperators('+', (a) -> +a);
         container.setPrefixOperators('-', (a) -> -a);
         container.setPrefixOperators('~', (a) -> (double) Math.round(a));
     }
 
-    private static void initialiseSuffixOperators(OperationsContainer container) {
+    private void setSuffixOperators(OperationsContainer container) {
         container.setSuffixOperators('!', (a) -> {
             double result = 1;
             for (int i = 1; i <= a; i++) {
@@ -43,12 +93,12 @@ public class DefaultOperationManager {
         container.setSuffixOperators('³', (x) -> Math.pow(x, 3));  // should be pretty helpful
     }
 
-    private static void initialiseConstants(OperationsContainer container) {
+    private void setConstants(OperationsContainer container) {
         container.setVariable("pi", Math.PI);
         container.setVariable("e", Math.E);
     }
 
-    private static void initialiseFunctions(OperationsContainer container) {
+    private void setFunctions(OperationsContainer container) {
         container.setFunction("sin", Math::sin);
         container.setFunction("asin", Math::asin);
         container.setFunction("cos", Math::cos);
