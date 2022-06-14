@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.function.DoubleBinaryOperator;
 import java.util.function.DoubleFunction;
 
-public class OperationsContainer implements OperationsHolder {
+public class OperationsContainer implements OperationsHolder, OperationsSettable {
 
     // package-private to make them accessible for the EquationSolver
     // that way there is no need to make a getOperator and hasOperator for each hashMap
@@ -41,6 +41,7 @@ public class OperationsContainer implements OperationsHolder {
 
     // expressionOperator
 
+    @Override
     public void setExpressionOperator(Character operator, DoubleBinaryOperator evaluator) {
         this.expressionOperators.put(operator, evaluator);
     }
@@ -61,6 +62,7 @@ public class OperationsContainer implements OperationsHolder {
 
     // termOperator
 
+    @Override
     public void setTermOperator(Character operator, DoubleBinaryOperator evaluator) {
         this.termOperators.put(operator, evaluator);
     }
@@ -81,6 +83,7 @@ public class OperationsContainer implements OperationsHolder {
 
     // factorOperator
 
+    @Override
     public void setFactorOperator(Character operator, DoubleBinaryOperator evaluator) {
         this.factorOperators.put(operator, evaluator);
     }
@@ -101,6 +104,7 @@ public class OperationsContainer implements OperationsHolder {
 
     // prefixOperator
 
+    @Override
     public void setPrefixOperators(Character operator, DoubleFunction<Double> evaluator) {
         this.prefixOperators.put(operator, evaluator);
     }
@@ -121,6 +125,7 @@ public class OperationsContainer implements OperationsHolder {
 
     // suffixOperator
 
+    @Override
     public void setSuffixOperators(Character operator, DoubleFunction<Double> evaluator) {
         this.suffixOperators.put(operator, evaluator);
     }
@@ -142,6 +147,7 @@ public class OperationsContainer implements OperationsHolder {
     // variables
 
     // 'double' instead of 'Double' to allow passing of integer or float
+    @Override
     public void setVariable(String name, double value) throws InvalidVariableNameException {
         this.validateVariableName(name);
         this.variables.put(name, value);
@@ -169,6 +175,7 @@ public class OperationsContainer implements OperationsHolder {
 
     // functions
 
+    @Override
     public void setFunction(String name, DoubleFunction<Double> function) throws InvalidFunctionNameException {
         this.validateFunctionName(name);
         this.functions.put(name, function);

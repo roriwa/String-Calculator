@@ -42,7 +42,7 @@ public class OperationsBuilder {
         return container;
     }
 
-    public void setOnContainer(OperationsContainer container) {
+    public void setOnContainer(OperationsSettable container) {
         if (this.basicOperations)  // 0x0
             this.setBasicOperators(container);
 
@@ -63,7 +63,7 @@ public class OperationsBuilder {
      * initialisation default operations, functions, etc
      */
 
-    private void setBasicOperators(OperationsContainer container) {
+    private void setBasicOperators(OperationsSettable container) {
         container.setExpressionOperator('+', Double::sum);
         container.setExpressionOperator('-', (a, b) -> a - b);
         container.setTermOperator('*', (a, b) -> a * b);
@@ -73,13 +73,13 @@ public class OperationsBuilder {
         container.setFactorOperator('^', Math::pow);
     }
 
-    private void setPrefixOperators(OperationsContainer container) {
+    private void setPrefixOperators(OperationsSettable container) {
         container.setPrefixOperators('+', (a) -> +a);
         container.setPrefixOperators('-', (a) -> -a);
         container.setPrefixOperators('~', (a) -> (double) Math.round(a));
     }
 
-    private void setSuffixOperators(OperationsContainer container) {
+    private void setSuffixOperators(OperationsSettable container) {
         container.setSuffixOperators('!', (a) -> {
             double result = 1;
             for (int i = 1; i <= a; i++) {
@@ -93,12 +93,12 @@ public class OperationsBuilder {
         container.setSuffixOperators('³', (x) -> Math.pow(x, 3));  // should be pretty helpful
     }
 
-    private void setConstants(OperationsContainer container) {
+    private void setConstants(OperationsSettable container) {
         container.setVariable("pi", Math.PI);
         container.setVariable("e", Math.E);
     }
 
-    private void setFunctions(OperationsContainer container) {
+    private void setFunctions(OperationsSettable container) {
         container.setFunction("sin", Math::sin);
         container.setFunction("asin", Math::asin);
         container.setFunction("cos", Math::cos);
