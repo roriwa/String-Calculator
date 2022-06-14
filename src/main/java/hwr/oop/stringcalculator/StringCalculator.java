@@ -10,7 +10,7 @@ public class StringCalculator extends OperationsContainer {
     public StringCalculator() {
         OperationsBuilder builder = new OperationsBuilder();
         builder.setAll(true);
-        builder.setOnContainer(this);
+        builder.setOperationsOn(this);
     }
 
     public double solve(final String equation) {

@@ -38,11 +38,11 @@ public class OperationsBuilder {
 
     public OperationsContainer build() {
         OperationsContainer container = new OperationsContainer();
-        this.setOnContainer(container);
+        this.setOperationsOn(container);
         return container;
     }
 
-    public void setOnContainer(OperationsSettable container) {
+    public void setOperationsOn(OperationsSettable container) {
         if (this.basicOperations)  // 0x0
             this.setBasicOperators(container);
 
