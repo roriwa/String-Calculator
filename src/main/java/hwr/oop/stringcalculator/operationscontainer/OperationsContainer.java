@@ -8,9 +8,6 @@ import java.util.function.DoubleFunction;
 
 public class OperationsContainer implements OperationsHolder, OperationsSettable {
 
-    // package-private to make them accessible for the EquationSolver
-    // that way there is no need to make a getOperator and hasOperator for each hashMap
-    // setOperator and removeOperator is still required to make it configurable from outside the package
     private final HashMap<Character, DoubleBinaryOperator> expressionOperators;
     private final HashMap<Character, DoubleBinaryOperator> termOperators;
     private final HashMap<Character, DoubleBinaryOperator> factorOperators;
