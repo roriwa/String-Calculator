@@ -45,12 +45,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public DoubleBinaryOperator getExpressionOperator(Character operator){
+    public DoubleBinaryOperator getExpressionOperator(Character operator) {
         return this.expressionOperators.get(operator);
     }
 
     @Override
-    public boolean hasExpressionOperator(Character operator){
+    public boolean hasExpressionOperator(Character operator) {
         return this.expressionOperators.containsKey(operator);
     }
 
@@ -66,12 +66,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public DoubleBinaryOperator getTermOperator(Character operator){
+    public DoubleBinaryOperator getTermOperator(Character operator) {
         return this.termOperators.get(operator);
     }
 
     @Override
-    public boolean hasTermOperator(Character operator){
+    public boolean hasTermOperator(Character operator) {
         return this.termOperators.containsKey(operator);
     }
 
@@ -87,12 +87,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public DoubleBinaryOperator getFactorOperator(Character operator){
+    public DoubleBinaryOperator getFactorOperator(Character operator) {
         return this.factorOperators.get(operator);
     }
 
     @Override
-    public boolean hasFactorOperator(Character operator){
+    public boolean hasFactorOperator(Character operator) {
         return this.factorOperators.containsKey(operator);
     }
 
@@ -108,12 +108,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public DoubleFunction<Double> getPrefixOperator(Character operator){
+    public DoubleFunction<Double> getPrefixOperator(Character operator) {
         return this.prefixOperators.get(operator);
     }
 
     @Override
-    public boolean hasPrefixOperator(Character operator){
+    public boolean hasPrefixOperator(Character operator) {
         return this.prefixOperators.containsKey(operator);
     }
 
@@ -129,12 +129,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public DoubleFunction<Double> getSuffixOperator(Character operator){
+    public DoubleFunction<Double> getSuffixOperator(Character operator) {
         return this.suffixOperators.get(operator);
     }
 
     @Override
-    public boolean hasSuffixOperator(Character operator){
+    public boolean hasSuffixOperator(Character operator) {
         return this.suffixOperators.containsKey(operator);
     }
 
@@ -152,12 +152,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public Double getVariable(String name){
+    public Double getVariable(String name) {
         return this.variables.get(name);
     }
 
     @Override
-    public boolean hasVariable(String name){
+    public boolean hasVariable(String name) {
         return this.variables.containsKey(name);
     }
 
@@ -180,12 +180,12 @@ public class OperationsContainer implements OperationsHolder, OperationsSettable
     }
 
     @Override
-    public DoubleFunction<Double> getFunction(String name){
+    public DoubleFunction<Double> getFunction(String name) {
         return this.functions.get(name);
     }
 
     @Override
-    public boolean hasFunction(String name){
+    public boolean hasFunction(String name) {
         return this.functions.containsKey(name);
     }
 

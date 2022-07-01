@@ -25,7 +25,7 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetExpressionOperator(){
+    void testSetGetExpressionOperator() {
         Character operator = '=';
         DoubleBinaryOperator evaluator = (a, b) -> (a == b) ? 1 : 0;
 
@@ -46,7 +46,7 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetTermOperator(){
+    void testSetGetTermOperator() {
         Character operator = '=';
         DoubleBinaryOperator evaluator = (a, b) -> (a == b) ? 1 : 0;
 
@@ -67,7 +67,7 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetFactorOperator(){
+    void testSetGetFactorOperator() {
         Character operator = '=';
         DoubleBinaryOperator evaluator = (a, b) -> (a == b) ? 1 : 0;
 
@@ -88,9 +88,9 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetPrefixOperator(){
+    void testSetGetPrefixOperator() {
         Character operator = ':';
-        DoubleFunction<Double> evaluator = (a) -> 2*a;
+        DoubleFunction<Double> evaluator = (a) -> 2 * a;
 
         Assertions.assertThat(container.hasPrefixOperator(operator)).isFalse();
         container.setPrefixOperators(operator, evaluator);
@@ -109,9 +109,9 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetSuffixOperator(){
+    void testSetGetSuffixOperator() {
         Character operator = '"';
-        DoubleFunction<Double> evaluator = (a) -> 2*a;
+        DoubleFunction<Double> evaluator = (a) -> 2 * a;
 
         Assertions.assertThat(container.hasPrefixOperator(operator)).isFalse();
         container.setPrefixOperators(operator, evaluator);
@@ -130,7 +130,7 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetVariable(){
+    void testSetGetVariable() {
         String name = "var";
         Double value = 456.0;
 
@@ -142,12 +142,12 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testInvalidVariableName(){
-        try{
+    void testInvalidVariableName() {
+        try {
             container.setVariable("", 69);
             container.setVariable("56", 420);
             container.setVariable("56ad", 69420);
-        } catch (InvalidVariableNameException e){
+        } catch (InvalidVariableNameException e) {
             return;
         }
         Assertions.fail("empty or invalid variable name was accepted");
@@ -163,9 +163,9 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testSetGetFunction(){
+    void testSetGetFunction() {
         String name = "func";
-        DoubleFunction<Double> functions = (a) -> 2*a;
+        DoubleFunction<Double> functions = (a) -> 2 * a;
 
         Assertions.assertThat(container.hasFunction(name)).isFalse();
         container.setFunction(name, functions);
@@ -175,12 +175,12 @@ public class OperationsContainerTests {
     }
 
     @Test
-    void testInvalidFunctionName(){
-        try{
+    void testInvalidFunctionName() {
+        try {
             container.setFunction("", (value) -> value);
             container.setFunction("56", (value) -> value);
             container.setFunction("56ad", (value) -> value);
-        } catch (InvalidFunctionNameException e){
+        } catch (InvalidFunctionNameException e) {
             return;
         }
         Assertions.fail("empty or invalid function name was accepted");
