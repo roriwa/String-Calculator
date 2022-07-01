@@ -3,7 +3,7 @@ package hwr.oop.stringcalculator;
 
 import hwr.oop.stringcalculator.equationsolver.EquationSolver;
 import hwr.oop.stringcalculator.operationscontainer.OperationsContainer;
-import hwr.oop.stringcalculator.operationscontainer.OperationsBuilder;
+import hwr.oop.stringcalculator.operationscontainer.operationsbuilder.OperationsBuilder;
 
 public class StringCalculator extends OperationsContainer {
     /*

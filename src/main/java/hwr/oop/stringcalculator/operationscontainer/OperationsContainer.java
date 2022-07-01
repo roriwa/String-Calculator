@@ -1,6 +1,7 @@
 package hwr.oop.stringcalculator.operationscontainer;
 
 import hwr.oop.stringcalculator.equationsolver.OperationsHolder;
+import hwr.oop.stringcalculator.operationscontainer.operationsbuilder.OperationsBuilder;
 
 import java.util.HashMap;
 import java.util.function.DoubleBinaryOperator;
