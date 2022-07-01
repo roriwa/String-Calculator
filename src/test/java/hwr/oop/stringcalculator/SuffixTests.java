@@ -27,7 +27,13 @@ public class SuffixTests {
     }
 
     @Test
-    void testAngle() {
+    void testDegrees() {
+        double result = calculator.solve("180°");
+        Assertions.assertThat(result).isEqualTo(Math.PI);
+    }
+
+    @Test
+    void testPercent() {
         double result = calculator.solve("34%");
         Assertions.assertThat(result).isEqualTo(0.34);
     }
