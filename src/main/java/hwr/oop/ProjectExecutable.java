@@ -9,6 +9,10 @@ public class ProjectExecutable {
      * this class is meant to have an executable version of the StringCalculator
      *
      * it consists of continues input of equation that then get solved using the StringCalculator class
+     *
+     * it is NOT part of the 'stringcalculator' or related packages
+     *
+     * maybe a better file-place would be somewhere in the test directory (because it's the same as the ManuelTest.java)
      */
 
     Scanner inputStream;
