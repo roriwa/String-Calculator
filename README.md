@@ -8,12 +8,13 @@ String-Calculator is a Java-Class to safely evaluate a Mathematical Equation.
 This Equation can be (e.g.) from a User.
 
 From Basic Operators like plus and minus it features also small helpful additions like the `°`-suffix to convert degrees
-to radian (`90° => π/4`).
+to radian (`90° => π/4`) to be able to execute `sin()` or `cos()` in an easy manner (`sin(90°)`) instead with the
+complicated usage of `rad()` (`sin(rad(90))`).
 
 It is designed to make it easy to customize the Calculator by adding custom functions, variables or even operators.
 It is also possible to overwrite an existing operator
 (eg `calculator.setExpressionOperator('+', (a, b) -> 2*a + 2*b);`, `2+2 => 8`)
-or to create a complete new operator
+or to create a completely new operators
 (eg `calculator.setPrefixOperators('~', (x) -> Math.round(x));`, `~0.6845 => 1.0`)
 
 ### Usage Example
