@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class ManualTest {
-    Scanner input;
+    Scanner inputStream;
     String inputEquation;
     StringCalculator calculator;
 
@@ -13,7 +13,7 @@ public class ManualTest {
     }
 
     ManualTest() {
-        this.input = new Scanner(System.in);
+        this.inputStream = new Scanner(System.in);
         this.calculator = new StringCalculator();
     }
 
@@ -21,7 +21,7 @@ public class ManualTest {
         this.readInput();
         while (this.inputEquation.length() > 0) {
             try {
-                double result = calculator.solve(this.inputEquation);
+                double result = this.calculator.solve(this.inputEquation);
                 this.printResult(result);
             } catch (Exception e) {
                 e.printStackTrace(System.out);
@@ -33,7 +33,7 @@ public class ManualTest {
 
     private void readInput() {
         System.out.print("Equation: ");
-        this.inputEquation = this.input.nextLine();
+        this.inputEquation = this.inputStream.nextLine();
     }
 
     private void printResult(double result) {
